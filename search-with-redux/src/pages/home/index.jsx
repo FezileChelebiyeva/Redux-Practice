@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "antd";
 import { Button, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,10 @@ import { Spin } from "antd";
 const HomePage = () => {
   const dispatch = useDispatch();
   const university = useSelector((state) => state.university);
+  useEffect(() => {
+    dispatch(fetchData(""));
+  }, []);
+
   const columns = [
     {
       title: "University Name",
