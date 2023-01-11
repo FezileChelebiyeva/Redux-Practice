@@ -30,7 +30,7 @@ const HomePage = () => {
       title: "Website",
       dataIndex: "web_pages",
       render: (website) => (
-        <a target="_blank" href={website}>
+        <a style={{ color: "red" }} target="_blank" href={website}>
           {website}
         </a>
       ),
@@ -39,7 +39,9 @@ const HomePage = () => {
 
   return (
     <div>
-      <h2 style={{ textAlign: "center" }}>Search University By Name</h2>
+      <h2 style={{ textAlign: "center", color: "darkblue" }}>
+        Search University By Name
+      </h2>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Input
           onChange={(e) => {
