@@ -33,9 +33,9 @@ export const deletCustomerAction = (id) => {
   };
 };
 
-export const addCustomersAction = (values) => {
+export const addCustomersAction = (object) => {
   return async (dispatch) => {
-    await axios.post("https://northwind.vercel.app/api/customers", values);
+    await axios.post("https://northwind.vercel.app/api/customers", object);
     dispatch({
       type: " ADD_CUSTOMER",
     });

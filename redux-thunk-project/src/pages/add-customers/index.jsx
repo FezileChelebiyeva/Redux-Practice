@@ -9,7 +9,15 @@ const AddCustomers = () => {
   const dispatch = useDispatch();
   const onFinish = (values) => {
     form.resetFields();
-    dispatch(addCustomersAction(values));
+    let object = {
+      companyName: values.companyName,
+      contactTitle: values.contactTitle,
+      address: {
+        city: values.city,
+        country: values.country,
+      },
+    };
+    dispatch(addCustomersAction(object));
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -60,8 +68,8 @@ const AddCustomers = () => {
         </Form.Item>
 
         <Form.Item
-          label="Address"
-          name="address"
+          label="City"
+          name="city"
           rules={[
             {
               required: true,
@@ -69,7 +77,20 @@ const AddCustomers = () => {
             },
           ]}
         >
-          <Input placeholder="address(country, city)" />
+          <Input placeholder="city" />
+        </Form.Item>
+
+        <Form.Item
+          label="Country"
+          name="country"
+          rules={[
+            {
+              required: true,
+              message: "please write country!",
+            },
+          ]}
+        >
+          <Input placeholder="country" />
         </Form.Item>
 
         <Form.Item

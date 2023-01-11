@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToFavoritesAction } from "../../redux/action/favorites.actions";
+import { addToFavoritesAction, removeFromFavoritesAction } from "../../redux/action/favorites.actions";
 import Highlighter from "react-highlight-words";
 import { SearchOutlined } from "@ant-design/icons";
 import { Table, Button, Input, Space } from "antd";
@@ -35,6 +35,7 @@ const CustomerList = () => {
 
   const handleDeleteCustomer = (id) => {
     dispatch(deletCustomerAction(id));
+    dispatch(removeFromFavoritesAction(id));
     // dispatch(getAllCustomersAction());
   };
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
